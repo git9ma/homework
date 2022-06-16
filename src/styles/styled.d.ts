@@ -1,14 +1,13 @@
-// import original module declarations
-import 'styled-components';
+import "styled-components";
 
-// and extend them!
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
-    borderRadius: string;
-
-    colors: {
-      main: string;
-      secondary: string;
+    color: {
+      white: "rgba(255, 255, 255, 1)",
+      black: "rgba(0, 0, 0, 0)",
+      heavyGray: "rgba(58, 58, 58)",
+      mediumGray: "rgba(58, 58, 58, 0.8)",
+      lightGray: "rgba(58, 58, 58, 0.7)",
     };
   }
 }
