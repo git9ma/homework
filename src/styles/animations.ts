@@ -9,6 +9,6 @@ export const fadeSlideTop = keyframes`
   }
   to {
     opacity: 1;
-    transform: translateY(-${convertPixelToRem(10)}rem);
+    transform: translateY(-${convertPixelToRem(15)}rem);
   }
 `
