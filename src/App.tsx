@@ -4,6 +4,9 @@ import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/global-style'
 import { convertPixelToRem } from './utils/helpers'
 
+const AppleBadgeUrl = '/src/images/badge-apple4x.png'
+const GoogleBadgeUrl = '/src/images/play-store2x.png'
+
 const SectionContainer = styled.div`
   position: relative;
   overflow: hidden;
@@ -28,8 +31,8 @@ const ContentLogo = styled.div`
   width: ${convertPixelToRem(400)}rem;
   height: ${convertPixelToRem(338)}rem;
   background-size: ${convertPixelToRem(400)}rem ${convertPixelToRem(338)}rem;
-  padding-top: : ${convertPixelToRem(280)}rem;
-  font-size: : ${convertPixelToRem(15)}rem;
+  padding-top: ${convertPixelToRem(280)}rem;
+  font-size: ${convertPixelToRem(15)}rem;
 `
 
 const ContentsContainer = styled.div`
@@ -62,13 +65,17 @@ const AwardsContainer = styled.div`
   margin-bottom: ${convertPixelToRem(140)}rem;
   margin-left: ${convertPixelToRem(623)}rem;
 `
+interface AwardItemProps {
+  children: React.ReactNode
+  backgroundImageSrc: string
+}
 
-const AwardItemContainer = styled.div`
+const AwardItemContainer = styled.div<AwardItemProps>`
   display: inline-block;
   font-family: sans-serif;
   background-position: left top;
   background-repeat: no-repeat;
-  
+
   color: ${theme.color.mediumGray};
 
   font-weight: bold;
@@ -78,17 +85,16 @@ const AwardItemContainer = styled.div`
   padding-right: ${convertPixelToRem(0)}rem;
   padding-bottom: ${convertPixelToRem(5)}rem;
   padding-left: ${convertPixelToRem(62)}rem;
-  font-size: ${convertPixelToRem(14)}rem
-  line-height:${convertPixelToRem(22)}rem
-  margin-right: ${convertPixelToRem(39)}rem
-`
+  font-size: ${convertPixelToRem(14)}rem;
+  line-height: ${convertPixelToRem(22)}rem;
+  margin-right: ${convertPixelToRem(39)}rem;
 
-function AwardItem() {
+  background-image: url(${(props) => props.backgroundImageSrc});
+`
+function AwardItem({ children, backgroundImageSrc }: AwardItemProps) {
   return (
-    <AwardItemContainer>
-      2018 구글 플레이스토어
-      <br />
-      올해의 앱 최우수상 수상
+    <AwardItemContainer backgroundImageSrc={backgroundImageSrc}>
+      {children}
     </AwardItemContainer>
   )
 }
@@ -118,8 +124,20 @@ function App() {
               <MetricItem />
             </MetricsContainer>
             <AwardsContainer>
-              <AwardItem />
-              <AwardItem />
+              <AwardItem backgroundImageSrc={GoogleBadgeUrl}>
+                <div>
+                  2018 구글 플레이스토어
+                  <br />
+                  올해의 앱 최우수상 수상
+                </div>
+              </AwardItem>
+              <AwardItem backgroundImageSrc={AppleBadgeUrl}>
+                <div>
+                  2018 애플 앱스토어
+                  <br />
+                  오늘의 여행앱 선정
+                </div>
+              </AwardItem>
             </AwardsContainer>
           </ContentsContainer>
         </SectionContainer>
