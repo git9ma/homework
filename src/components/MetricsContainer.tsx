@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { theme } from '../styles/theme'
+import { fadeSlideTop } from '../styles/animations'
 import { convertPixelToRem } from '../utils/helpers'
 
 const StyledContainer = styled.div`
@@ -18,6 +19,8 @@ const MetricItemContainer = styled.div`
   font-size: ${convertPixelToRem(36)}rem;
   letter-spacing: -${convertPixelToRem(1)}rem;
   margin-bottom: ${convertPixelToRem(20)}rem;
+  animation: ${fadeSlideTop} 700ms ease-in-out both;
+  animation-delay: 100ms;
 `
 
 function MetricItem() {
