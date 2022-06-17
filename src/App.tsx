@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/global-style'
 import { convertPixelToRem } from './utils/helpers'
+import ContentLogo from './components/ContentLogo'
 
 const AppleBadgeUrl = '/src/images/badge-apple4x.png'
 const GoogleBadgeUrl = '/src/images/play-store2x.png'
@@ -18,21 +19,6 @@ const SectionContainer = styled.div`
   background-color: inherit;
   background-size: cover;
   background-position: center center;
-`
-
-const ContentLogo = styled.div`
-  box-sizing: border-box;
-  background-repeat: no-repeat;
-  text-align: center;
-  font-family: sans-serif;
-  color: ${theme.color.lightGray};
-  position: absolute;
-  top: ${convertPixelToRem(150)}rem;
-  width: ${convertPixelToRem(400)}rem;
-  height: ${convertPixelToRem(338)}rem;
-  background-size: ${convertPixelToRem(400)}rem ${convertPixelToRem(338)}rem;
-  padding-top: ${convertPixelToRem(280)}rem;
-  font-size: ${convertPixelToRem(15)}rem;
 `
 
 const ContentsContainer = styled.div`
