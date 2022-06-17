@@ -3,7 +3,17 @@ import styled from 'styled-components'
 import { theme } from '../styles/theme'
 import { convertPixelToRem } from '../utils/helpers'
 
-const ContentLogo = styled.div`
+const ContentLogoUrl = '/src/images/triple2x.png'
+
+interface ContentLogoProp {
+  children: React.ReactNode
+}
+
+interface ContentLogoContainerProp {
+  backgroundImageSrc: string
+}
+
+const ContentLogoContainer = styled.div<ContentLogoContainerProp>`
   box-sizing: border-box;
   background-repeat: no-repeat;
   text-align: center;
@@ -16,6 +26,15 @@ const ContentLogo = styled.div`
   background-size: ${convertPixelToRem(400)}rem ${convertPixelToRem(338)}rem;
   padding-top: ${convertPixelToRem(280)}rem;
   font-size: ${convertPixelToRem(15)}rem;
+  background-image: url(${(props) => props.backgroundImageSrc});
 `
+
+function ContentLogo({ children }: ContentLogoProp) {
+  return (
+    <ContentLogoContainer backgroundImageSrc={ContentLogoUrl}>
+      {children}
+    </ContentLogoContainer>
+  )
+}
 
 export default ContentLogo
