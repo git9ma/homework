@@ -4,22 +4,10 @@ import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/global-style'
 import { convertPixelToRem } from './utils/helpers'
 import ContentLogo from './components/ContentLogo'
+import SectionContainer from './components/SectionContainer'
 
 const AppleBadgeUrl = '/src/images/badge-apple4x.png'
 const GoogleBadgeUrl = '/src/images/play-store2x.png'
-
-const SectionContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  background-image: inherit;
-  background-repeat: inherit;
-  background-attachment: inherit;
-  background-origin: inherit;
-  background-clip: inherit;
-  background-color: inherit;
-  background-size: cover;
-  background-position: center center;
-`
 
 const ContentsContainer = styled.div`
   width: ${convertPixelToRem(1040)}rem;
