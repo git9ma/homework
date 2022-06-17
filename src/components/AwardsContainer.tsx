@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { theme } from '../styles/theme'
+import { fadeSlideTop } from '../styles/animations'
 import { convertPixelToRem } from '../utils/helpers'
 
 const AppleBadgeUrl = '/src/images/badge-apple4x.png'
@@ -17,6 +18,8 @@ const StyledContainer = styled.div`
   margin-right: ${convertPixelToRem(0)}rem;
   margin-bottom: ${convertPixelToRem(140)}rem;
   margin-left: ${convertPixelToRem(623)}rem;
+  animation: ${fadeSlideTop} 700ms ease-in-out both;
+  animation-delay: 200ms;
 `
 
 const AwardItemContainer = styled.div<AwardItemProps>`

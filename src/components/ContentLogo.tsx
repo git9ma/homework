@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { fadeSlideTop } from '../styles/animations'
 import { theme } from '../styles/theme'
 import { convertPixelToRem } from '../utils/helpers'
 
@@ -27,6 +28,7 @@ const ContentLogoContainer = styled.div<ContentLogoContainerProp>`
   padding-top: ${convertPixelToRem(280)}rem;
   font-size: ${convertPixelToRem(15)}rem;
   background-image: url(${(props) => props.backgroundImageSrc});
+  animation: ${fadeSlideTop} 700ms ease-in-out both;
 `
 
 function ContentLogo({ children }: ContentLogoProp) {
