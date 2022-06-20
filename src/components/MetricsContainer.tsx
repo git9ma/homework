@@ -4,6 +4,14 @@ import { theme } from '../styles/theme'
 import { fadeSlideTop } from '../styles/animations'
 import { convertPixelToRem } from '../utils/helpers'
 
+import IncreasingNumber from './IncreasingNumber'
+
+interface MetricItemProps {
+  indicator: string
+  infoText: string
+  targetNumber: number
+}
+
 const StyledContainer = styled.div`
   margin-left: ${convertPixelToRem(623)}rem;
   padding-top: ${convertPixelToRem(150)}rem;
@@ -23,13 +31,16 @@ const MetricItemContainer = styled.div`
   animation-delay: 100ms;
 `
 
-function MetricItem() {
+function MetricItem({ indicator, infoText, targetNumber }: MetricItemProps) {
   return (
     <MetricItemContainer>
       <strong>
-        <span>100</span>만 개
+        <span>
+          <IncreasingNumber duration={2000} target={targetNumber} begin={0} />
+        </span>
+        {`${indicator}`}
       </strong>
-      의 여행 일정
+      {`의 ${infoText}`}
     </MetricItemContainer>
   )
 }
@@ -37,9 +48,9 @@ function MetricItem() {
 function MetricsContainer() {
   return (
     <StyledContainer>
-      <MetricItem />
-      <MetricItem />
-      <MetricItem />
+      <MetricItem indicator="만 명" infoText="사용자" targetNumber={350} />
+      <MetricItem indicator="만 개" infoText="리뷰" targetNumber={21} />
+      <MetricItem indicator="만 개" infoText="저장" targetNumber={650} />
     </StyledContainer>
   )
 }
