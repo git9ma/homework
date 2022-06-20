@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 import { reset } from 'styled-reset'
 
-import { remConfigValue } from '../utils/setting.js'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// ts file import 시 생기는 error disabled
+import { remConfigValue } from '../utils/helpers.ts'
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
